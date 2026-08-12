@@ -22,24 +22,24 @@
 <style>
 /* ============ TOKENS ============ */
 :root{
-  --cream: #FBF7EF;
-  --cream-deep: #F2EBDA;
-  --paper: #FFFDF9;
+  --cream: #FBF0DD;
+  --cream-deep: #F3DFB8;
+  --paper: #FFF8EC;
   --white: #FFFFFF;
-  --ink: #232C42;
-  --ink-soft: #566079;
-  --ink-faint: #8891A3;
-  --gold: #B58A4A;
-  --gold-light: #D9BD8C;
-  --gold-pale: #F1E3C8;
-  --gold-deep: #8A652E;
-  --blue: #C4D9E3;
-  --blue-deep: #83A9BC;
-  --navy: #1D2B45;
-  --navy-deep: #131D30;
-  --line: rgba(35,44,66,0.10);
-  --shadow-soft: 0 20px 60px -25px rgba(35,44,66,0.25);
-  --shadow-card: 0 12px 32px -14px rgba(35,44,66,0.18);
+  --ink: #3A1710;
+  --ink-soft: #6E4331;
+  --ink-faint: #9C7A62;
+  --gold: #C9973F;
+  --gold-light: #E8C077;
+  --gold-pale: #F5E3B8;
+  --gold-deep: #93611E;
+  --blue: #E8935A;
+  --blue-deep: #C15B2C;
+  --navy: #4A1112;
+  --navy-deep: #2B0A0C;
+  --line: rgba(74,17,18,0.12);
+  --shadow-soft: 0 20px 60px -25px rgba(43,10,12,0.35);
+  --shadow-card: 0 12px 32px -14px rgba(43,10,12,0.25);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 10px;
@@ -177,7 +177,7 @@ section{
 .btn-gold:hover{transform:translateY(-3px); box-shadow:0 20px 36px -12px rgba(138,101,46,0.6);}
 .btn-ghost{
   background:rgba(255,255,255,0.5);
-  border:1px solid rgba(35,44,66,0.16);
+  border:1px solid rgba(74,17,18,0.18);
   color:var(--navy);
   backdrop-filter:blur(6px);
 }
@@ -200,9 +200,9 @@ header{
 }
 header.scrolled{
   padding:14px 0;
-  background:rgba(251,247,239,0.82);
+  background:rgba(251,240,221,0.85);
   backdrop-filter:blur(14px) saturate(140%);
-  box-shadow:0 8px 30px -18px rgba(35,44,66,0.25);
+  box-shadow:0 8px 30px -18px rgba(43,10,12,0.35);
   border-bottom:1px solid var(--line);
 }
 .nav{
@@ -306,8 +306,8 @@ header.scrolled{
   padding:150px 0 100px;
   overflow:hidden;
   background:
-    radial-gradient(1100px 620px at 82% -6%, rgba(197,217,227,0.55), transparent 60%),
-    radial-gradient(800px 500px at -6% 30%, rgba(241,227,200,0.7), transparent 60%),
+    radial-gradient(1100px 620px at 82% -6%, rgba(232,147,90,0.30), transparent 60%),
+    radial-gradient(800px 500px at -6% 30%, rgba(245,227,184,0.75), transparent 60%),
     var(--cream);
 }
 
@@ -329,7 +329,7 @@ header.scrolled{
 .hero-banner::after{
   content:'';
   position:absolute; inset:0;
-  background:linear-gradient(0deg, rgba(19,29,48,0.82) 0%, rgba(19,29,48,0.25) 42%, rgba(19,29,48,0.05) 65%);
+  background:linear-gradient(0deg, rgba(43,10,12,0.86) 0%, rgba(43,10,12,0.30) 42%, rgba(43,10,12,0.05) 65%);
 }
 .hero-banner-copy{
   position:absolute;
@@ -488,7 +488,7 @@ header.scrolled{
   position:absolute;
   width:460px;height:460px;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(213,178,120,0.35), transparent 65%);
+  background:radial-gradient(circle, rgba(232,147,90,0.40), transparent 65%);
   filter:blur(10px);
 }
 .chart-card{
@@ -604,7 +604,7 @@ header.scrolled{
 .about-photo::after{
   content:'';
   position:absolute; inset:0;
-  background:linear-gradient(200deg, transparent 55%, rgba(29,43,69,0.55));
+  background:linear-gradient(200deg, transparent 55%, rgba(43,10,12,0.60));
 }
 .about-photo .exp-chip{
   position:absolute; bottom:22px; left:22px; right:22px;
@@ -705,24 +705,45 @@ header.scrolled{
   position:relative;
   background:var(--cream);
   border-radius:var(--radius-md);
-  padding:30px 26px;
+  padding:0 0 28px;
   overflow:hidden;
-  border:1px solid transparent;
-  transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease);
+  border:1px solid var(--line);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease), border-color .4s var(--ease);
 }
 .svc-card:hover{
   transform:translateY(-6px);
   background:var(--paper);
-  box-shadow:var(--shadow-card);
-  border-color:var(--line);
+  box-shadow:var(--shadow-soft);
+  border-color:var(--gold);
 }
+.svc-card .svc-img{
+  width:100%;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:linear-gradient(155deg, var(--gold-pale), var(--cream-deep));
+  position:relative;
+}
+.svc-card .svc-img::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(58,23,16,0.28), transparent 55%);
+}
+.svc-card .svc-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.svc-card:hover .svc-img img{transform:scale(1.06);}
+.svc-card .svc-body{padding:24px 26px 0;}
 .svc-card .icn{
   width:48px;height:48px;
   border-radius:50%;
   background:#fff;
-  border:1px solid var(--line);
+  border:1px solid var(--gold-pale);
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px;
+  margin:-46px 0 18px;
+  position:relative;
+  z-index:1;
+  box-shadow:var(--shadow-card);
 }
 .svc-card .icn svg{width:22px;height:22px;color:var(--gold-deep);}
 .svc-card h3{font-size:18px;font-weight:600;margin-bottom:8px;}
@@ -739,6 +760,109 @@ header.scrolled{
 .svc-card .learn svg{width:13px;height:13px;transition:transform .3s var(--ease);}
 .svc-card:hover .learn svg{transform:translateX(4px);}
 
+/* ============ AWARDS & RECOGNITION ============ */
+.awards{background:var(--cream); position:relative; overflow:hidden;}
+.awards::before{
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(650px 380px at 8% 0%, rgba(232,147,90,0.12), transparent 60%),
+             radial-gradient(650px 420px at 96% 100%, rgba(201,151,63,0.12), transparent 60%);
+}
+.awards .wrap{position:relative; z-index:1;}
+.awards-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+@media (max-width:760px){ .awards-grid{grid-template-columns:1fr;} }
+.award-card{
+  background:var(--paper);
+  border:1px solid var(--gold);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-card);
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+}
+.award-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-soft);
+  border-color:var(--gold-deep);
+}
+.award-img{
+  aspect-ratio:16/10;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(155deg, var(--gold-pale), var(--cream-deep));
+}
+.award-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.award-card:hover .award-img img{transform:scale(1.06);}
+.award-img::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(58,23,16,0.35), transparent 55%);
+}
+.award-ribbon{
+  position:absolute; top:16px; left:16px;
+  display:inline-flex; align-items:center; gap:7px;
+  background:linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-deep));
+  color:#fff;
+  font-family:var(--font-label);
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.04em;
+  padding:7px 14px;
+  border-radius:999px;
+  box-shadow:0 10px 22px -8px rgba(43,10,12,0.5);
+}
+.award-ribbon svg{width:13px;height:13px;}
+.award-body{padding:26px 28px 30px;}
+.award-body h3{font-size:20px;font-weight:600;margin-bottom:10px;}
+.award-body p{color:var(--ink-soft);font-size:14.5px;}
+
+/* ============ YOUTUBE VIDEOS ============ */
+.videos{background:var(--paper); position:relative; overflow:hidden;}
+.videos::before{
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(700px 420px at 92% 0%, rgba(232,147,90,0.10), transparent 60%);
+}
+.videos .wrap{position:relative; z-index:1;}
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+@media (max-width:980px){ .video-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .video-grid{grid-template-columns:1fr;} }
+.video-card{
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.video-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-card);
+  border-color:var(--gold);
+}
+.video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:var(--navy-deep);
+}
+.video-frame iframe{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+.video-info{padding:18px 20px 22px;}
+.video-info h3{font-size:16px;font-weight:600;line-height:1.35;}
+
 /* ============ CONSULTATION PACKAGES ============ */
 .packages{
   background:var(--navy);
@@ -748,8 +872,8 @@ header.scrolled{
 .packages::before{
   content:'';
   position:absolute; inset:0;
-  background:radial-gradient(700px 400px at 12% 10%, rgba(197,217,227,0.12), transparent 60%),
-             radial-gradient(700px 500px at 90% 90%, rgba(217,189,140,0.14), transparent 60%);
+  background:radial-gradient(700px 400px at 12% 10%, rgba(232,147,90,0.14), transparent 60%),
+             radial-gradient(700px 500px at 90% 90%, rgba(232,192,119,0.16), transparent 60%);
 }
 .packages .section-head h2,{color:#fff;}
 .packages .section-head h2{color:#fff;}
@@ -778,7 +902,7 @@ header.scrolled{
 }
 .pkg-card:hover{transform:translateY(-8px); background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.3);}
 .pkg-card.featured{
-  background:linear-gradient(160deg, rgba(217,189,140,0.18), rgba(255,255,255,0.06));
+  background:linear-gradient(160deg, rgba(232,192,119,0.20), rgba(255,255,255,0.06));
   border-color:var(--gold-light);
   position:relative;
 }
@@ -1072,6 +1196,41 @@ footer{
 }
 .footer-bottom .disclaimer{max-width:640px; color:rgba(255,255,255,0.45); font-size:12px; margin-top:6px;}
 
+/* ============ PREMIUM THEME COHESION ============ */
+.about, .why, .testi, .faq, .contact, .services{ position:relative; }
+.why::before{
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(650px 380px at 90% 0%, rgba(232,147,90,0.10), transparent 60%),
+             radial-gradient(650px 420px at 4% 100%, rgba(201,151,63,0.10), transparent 60%);
+}
+.testi::before{
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(700px 400px at 6% 6%, rgba(201,151,63,0.10), transparent 60%);
+}
+.services::before{
+  content:'';
+  position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(700px 420px at 96% 4%, rgba(232,147,90,0.09), transparent 60%);
+}
+.why-grid, .svc-grid, .testi-track, .section-head{ position:relative; z-index:1; }
+
+.why-card, .testi-card, .faq-item, .contact-info, .contact-form{
+  border-color: rgba(201,151,63,0.28);
+}
+.why-card:hover{
+  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(201,151,63,0.4) inset;
+}
+.testi-card{ transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease); }
+.testi-card:hover{
+  transform:translateY(-6px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--gold);
+}
+.faq-item{ transition:border-color .35s var(--ease); }
+.faq-item.open{ border-color: var(--gold); }
+
 /* whatsapp floating button */
 .wa-float{
   position:fixed;
@@ -1108,6 +1267,8 @@ footer{
       <a href="#services">Services</a>
       <a href="#consultation">Consultation</a>
       <a href="#about">About</a>
+      <a href="#awards">Awards</a>
+      <a href="#videos">Videos</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -1115,7 +1276,7 @@ footer{
     <div class="nav-cta">
       <a href="#consultation" class="btn btn-gold btn-sm">Book Consultation</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#232C42" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#3A1710" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
@@ -1123,14 +1284,14 @@ footer{
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#232C42" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#3A1710" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
   </button>
   <a href="#home">Home</a>
   <a href="#services">Services</a>
   <a href="#consultation">Consultation</a>
   <a href="#about">About</a>
   <a href="#awards">Awards</a>
-  <a href="#testimonials">Testimonials</a>
+  <a href="#videos">Videos</a>
   <a href="#faq">FAQ</a>
   <a href="#contact">Contact</a>
   <a href="#consultation" class="btn btn-gold" style="margin-top:10px;">Book Consultation</a>
@@ -1275,6 +1436,41 @@ footer{
   </div>
 </section>
 
+<!-- ============ AWARDS & RECOGNITION ============ -->
+<section class="awards" id="awards">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Awards &amp; Recognition</span>
+      <h2>Awards &amp; Recognition</h2>
+      <p>Recognition received for trusted astrology services.</p>
+    </div>
+
+    <div class="awards-grid reveal-stagger">
+      <div class="award-card">
+        <div class="award-img">
+          <span class="award-ribbon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg> Honoured</span>
+          <img src="aw1.png" alt="Excellence in Vedic Astrology award">
+        </div>
+        <div class="award-body">
+          <h3>Excellence in Vedic Astrology</h3>
+          <p>Honoured at the Astrological Convention, Mumbai, for consistent accuracy and dedication to classical Parashari practice over a decade of consultations.</p>
+        </div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-img">
+          <span class="award-ribbon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"/></svg> Certified</span>
+          <img src="aw2.png" alt="Trusted Astrologer Recognition award">
+        </div>
+        <div class="award-body">
+          <h3>Trusted Astrologer Recognition</h3>
+          <p>Recognised by a leading community of Jyotish practitioners for maintaining the highest standards of confidentiality, ethics and client care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WHY CHOOSE US ============ -->
 <section class="why">
   <div class="wrap">
@@ -1330,65 +1526,145 @@ footer{
 
     <div class="svc-grid reveal-stagger">
       <div class="svc-card">
+        <div class="svc-img"><img src="mac.png" alt="Marriage Consultation illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
         <h3>Marriage Consultation</h3>
         <p>Kundli matching, timing of marriage and compatibility analysis for lasting harmony.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="cag.png" alt="Career Guidance illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21l6-6M21 3l-6 6M9 15l6-6M14 4l6 6-6 6-6-6z"/></svg></div>
         <h3>Career Guidance</h3>
         <p>Identify the right path, timing for change, and periods favourable for growth.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="bus.png" alt="Business Astrology illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg></div>
         <h3>Business Astrology</h3>
         <p>Chart analysis for partnerships, launches, expansion and financial timing.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="lr.png" alt="Love and Relationship illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 8.6c0 5.4-8.8 11.4-8.8 11.4S3.2 14 3.2 8.6a5.4 5.4 0 0 1 8.8-4.2 5.4 5.4 0 0 1 8.8 4.2z"/></svg></div>
         <h3>Love &amp; Relationship</h3>
         <p>Understand relationship dynamics and find a path through difficult phases.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="kun.png" alt="Kundli Analysis illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16M12 4v16" stroke-linecap="round"/></svg></div>
         <h3>Kundli Analysis</h3>
         <p>A complete reading of your birth chart covering all twelve houses in depth.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="vas.png" alt="Vastu Consultation illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg></div>
         <h3>Vastu Consultation</h3>
         <p>Align your home or office layout with Vastu principles for balance and prosperity.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="num.png" alt="Numerology illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM8 8h.01M12 8h4M8 12h.01M12 12h4M8 16h.01M12 16h4"/></svg></div>
         <h3>Numerology</h3>
         <p>Discover how your name and numbers shape your path, and how to align them.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="hel.png" alt="Health Astrology illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-8-5.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.5-8 11-8 11z"/><path d="M9 10l1.5 1.5L15 8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Health Astrology</h3>
         <p>Understand planetary influences on wellbeing, and suitable preventive remedies.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="edu.png" alt="Education Guidance illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3L2 8l10 5 10-5-10-5zM2 12l10 5 10-5M2 16l10 5 10-5"/></svg></div>
         <h3>Education Guidance</h3>
         <p>Timing for exams, admissions and choosing a field of study aligned to your chart.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
       <div class="svc-card">
+        <div class="svc-img"><img src="for.png" alt="Foreign Settlement illustration" loading="lazy"></div>
+        <div class="svc-body">
         <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18z"/></svg></div>
         <h3>Foreign Settlement</h3>
         <p>Assess prospects and favourable timing for relocating, studying or working abroad.</p>
         <a href="#contact" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
+ <div class="svc-card">
+  <div class="svc-img">
+    <img src="mang.png" alt="Manglik Dosh Analysis illustration" loading="lazy">
+  </div>
+
+  <div class="svc-body">
+    <div class="icn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M12 3l2.2 4.6L19 8.3l-3.5 3.4.8 4.8L12 14.8 7.7 16.5l.8-4.8L5 8.3l4.8-.7L12 3z"/>
+      </svg>
+    </div>
+
+    <h3>Manglik Dosh Analysis</h3>
+
+    <p>Analyze Manglik Dosh in your birth chart and receive expert guidance for marriage compatibility and remedies.</p>
+
+    <a href="#contact" class="learn">
+      Learn More
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</div>
+<div class="svc-card">
+  <div class="svc-img">
+    <img src="muh.png" alt="Muhurat Consultation illustration" loading="lazy">
+  </div>
+
+  <div class="svc-body">
+    <div class="icn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h3>Muhurat Consultation</h3>
+
+    <p>Find the most auspicious date and time for marriage, business, travel, housewarming and other important events.</p>
+
+    <a href="#contact" class="learn">
+      Learn More
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
     </div>
   </div>
 </section>
@@ -1496,6 +1772,44 @@ footer{
     <div class="testi-nav">
       <button id="testiPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button id="testiNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ YOUTUBE VIDEOS ============ -->
+<section class="videos" id="videos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Latest Videos</span>
+      <h2>Latest Videos</h2>
+      <p>Watch astrology guidance directly from Pandit Surendra Shastri Ji.</p>
+    </div>
+
+    <div class="video-grid reveal-stagger">
+      <div class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/shorts/embed/QD5fFwMebho?si=7F25HPEduCh5cIF0" title="Astrology guidance video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-info"><h3>Understanding Your Kundli — Basics Explained</h3></div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/shorts/embed/QD5fFwMebho?si=7F25HPEduCh5cIF0" title="Astrology guidance video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-info"><h3>Marriage Timing in Vedic Astrology</h3></div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Astrology guidance video 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-info"><h3>Career Growth: Reading the 10th House</h3></div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Astrology guidance video 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-info"><h3>Simple Vastu Tips for a Peaceful Home</h3></div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Astrology guidance video 5" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-info"><h3>Business Astrology: Timing Your Launch</h3></div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Astrology guidance video 6" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video-info"><h3>Numerology &amp; Your Life Path Number</h3></div>
+      </div>
     </div>
   </div>
 </section>
